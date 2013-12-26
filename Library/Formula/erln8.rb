@@ -12,6 +12,7 @@ class Erln8 < Formula
   def install
     system "make"
     system "make", "PREFIX=#{prefix}", "install"
+    bash_completion.install 'bash_completion/erln8'
   end
 
   test do

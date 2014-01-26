@@ -11,6 +11,7 @@ class Waxeye < Formula
   # b) I feel bad for anyone that has to use Java build tools
   option 'with-c', "Build Waxeye C runtime"
   option 'with-java', "Build Waxeye Java runtime"
+  option 'with-python', "Build Waxeye Python runtime"
 
   depends_on "plt-racket" => :build
 
@@ -47,6 +48,11 @@ class Waxeye < Formula
       lib.install "src/java/waxeye.jar"
     end
 
+    if build.with? 'python'
+       ENV.prepend_create_path 'PYTHONPATH', libexec+'lib/python2.7/site-packages'
+       system "cd src/python && python setup.py build install --prefix=#{libexec}"
+    end
+
   end
 
   def caveats
@@ -66,13 +72,6 @@ class Waxeye < Formula
       To use Waxeye from Javascript:
         mkdir -p ~/.node_libraries
         #{prefix}/src/javascript/waxeye.js ~/.node_libraries
-
-      To use Waxeye from Python:
-        pip install waxeye
-           or
-        cd #{prefix}/src/python
-        python setup.py build
-        python setup.py install
 
       To use Waxeye from Ruby:
         install the waxeye gem from RubyForge:

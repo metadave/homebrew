@@ -8,6 +8,8 @@ class Erln8 < Formula
   depends_on 'pkg-config' => :build
   depends_on 'gettext'
   depends_on 'libffi'
+  depends_on 'autoconf'
+  depends_on 'automake'
 
   def install
     system "make"

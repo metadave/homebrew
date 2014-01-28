@@ -10,6 +10,7 @@ class Erln8 < Formula
   depends_on 'libffi'
   depends_on 'autoconf'
   depends_on 'automake'
+  depends_on 'unixodbc'
 
   def install
     system "make"

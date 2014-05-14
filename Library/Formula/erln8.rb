@@ -1,8 +1,8 @@
 require 'formula'
 class Erln8 < Formula
   homepage ''
-  url 'https://github.com/metadave/erln8/archive/erln8-0.9.6.tar.gz'
-  sha1 '5c72a1ae8a2af016021217fe77d53795dcca4381'
+  url 'https://github.com/metadave/erln8/archive/erln8-0.9.7.tar.gz'
+  sha1 'c6cfeb0adb5489b6a95374ef116f843a2d341cee'
 
   depends_on 'glib'
   depends_on 'pkg-config' => :build
